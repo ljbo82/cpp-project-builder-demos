@@ -18,3 +18,4 @@ PROJ_NAME := hello
 PROJ_TYPE := app
 
 include ../../project.mk
+
