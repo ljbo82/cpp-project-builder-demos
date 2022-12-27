@@ -32,7 +32,7 @@ For more information, please refer to <http://unlicense.org/>
 extern "C" {
 #endif
 
-void _lib_println(cstring_t cstr);
+void _lib_println(const char* str);
 
 #ifdef __cplusplus
 } // extern "C"

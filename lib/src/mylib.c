@@ -28,10 +28,10 @@ For more information, please refer to <http://unlicense.org/>
 
 #include <stdio.h>
 
-void _lib_println(cstring_t cstr) {
-	printf("%s\n", cstr);
+void _lib_println(const char* str) {
+	printf("%s\n", str);
 }
 
-PUBLIC void CALL lib_println(cstring_t cstr) {
-	_lib_println(cstr);
+LIB_PUBLIC void LIB_CALL lib_println(const char* str) {
+	_lib_println(str);
 }

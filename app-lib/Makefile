@@ -30,20 +30,18 @@ endif
 PROJ_NAME := hello
 PROJ_TYPE := app
 
-LIB_PROJECTS += ../lib
-LIBS += mylib0
+O ?= output
 
-# Since LIB_TYPE will be defined after platform layers are processed,
-# includes project.mk instead of builder.mk in order to fully parse project
-# data prior to compiler management.
-include $(CPP_PROJECT_BUILDER)/project.mk
+INCLUDE_DIRS += $(O)/libs/dist/include
+LDFLAGS      += -L$(O)/libs/dist/lib
 
-# At this point, LIB_TYPE is defined, but compiler management did not took
-# place yet.
+MYLIB_SRC_DIR  := ../lib
+PRE_BUILD_DEPS += $(O)/libs/mylib.marker
+LDFLAGS        += -lmylib0
 
-# Source code use special decorators when using a shared library
-ifeq ($(LIB_TYPE),shared)
-    CFLAGS += -DUSE_SHARED_LIB
-endif
+--mylib:
+	$(O_VERBOSE)$(MAKE) -C $(MYLIB_SRC_DIR) O=$(call FN_REL_DIR,$(MYLIB_SRC_DIR),$(O)/libs) BUILD_SUBDIR=mylib DIST_MARKER=mylib.marker
+
+$(O)/libs/mylib.marker: --mylib ;
 
 include $(CPP_PROJECT_BUILDER)/builder.mk

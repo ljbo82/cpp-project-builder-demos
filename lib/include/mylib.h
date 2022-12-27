@@ -33,46 +33,33 @@ For more information, please refer to <http://unlicense.org/>
 #include <stdlib.h>
 
 #if defined _WIN32 || defined __CYGWIN__
-	#if defined (BUILD_SHARED_LIB) || defined (USE_SHARED_LIB)
-		#ifdef BUILD_SHARED_LIB
-			/** @internal */
-			#define PUBLIC __declspec(dllexport)
-		#else
-			/** @internal */
-			#define PUBLIC __declspec(dllimport)
-		#endif
+	#ifdef LIB_BUILD_SHARED_LIB
+		/** @internal */
+		#define LIB_PUBLIC __declspec(dllexport)
 	#else
-		#define PUBLIC
+		#define LIB_PUBLIC
 	#endif
 
 	/** @internal */
-	#define CALL __cdecl
+	#define LIB_CALL __cdecl
 #else
-	#ifdef BUILD_SHARED_LIB
-		#if __GNUC__ >= 4
-			/** @internal */
-			#define PUBLIC __attribute__ ((visibility ("default")))
-		#else
-			/** @internal */
-			#define PUBLIC
-		#endif
+	#if defined(LIB_BUILD_SHARED_LIB) && __GNUC__ >= 4
+		/** @internal */
+		#define LIB_PUBLIC __attribute__ ((visibility ("default")))
 	#else
 		/** @internal */
-		#define PUBLIC
+		#define LIB_PUBLIC
 	#endif
 
 	/** @internal */
-	#define CALL
+	#define LIB_CALL
 #endif
-
-/** @brief Standard C-string. */
-typedef const char* cstring_t;
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-PUBLIC void CALL lib_println(cstring_t cstr);
+LIB_PUBLIC void LIB_CALL lib_println(const char* str);
 
 #ifdef __cplusplus
 } // extern "C"
