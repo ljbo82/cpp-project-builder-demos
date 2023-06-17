@@ -26,8 +26,5 @@
 PROJ_NAME := hello
 PROJ_TYPE := app
 
-ifndef CPP_PROJECT_BUILDER
-    $(error [CPP_PROJECT_BUILDER] Missing definition)
-endif
-
-include $(CPP_PROJECT_BUILDER)/builder.mk
+CPP_PROJECT_BUILDER_CORE ?= ../../core
+include $(CPP_PROJECT_BUILDER_CORE)/builder.mk

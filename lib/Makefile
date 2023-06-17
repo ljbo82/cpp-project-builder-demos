@@ -26,14 +26,12 @@
 PROJ_NAME := mylib
 PROJ_TYPE := lib
 
-ifndef CPP_PROJECT_BUILDER
-    $(error [CPP_PROJECT_BUILDER] Missing definition)
-endif
+CPP_PROJECT_BUILDER_CORE ?= ../../core
 
 # Since LIB_TYPE will be defined after platform layers are processed,
 # includes project.mk instead of builder.mk in order to fully parse project
 # data prior to compiler management.
-include $(CPP_PROJECT_BUILDER)/project.mk
+include $(CPP_PROJECT_BUILDER_CORE)/project.mk
 
 # At this point, LIB_TYPE is defined, but compiler management did not took
 # place yet.
@@ -43,4 +41,4 @@ ifeq ($(LIB_TYPE),shared)
     CFLAGS += -DLIB_BUILD_SHARED_LIB -fvisibility=hidden
 endif
 
-include $(CPP_PROJECT_BUILDER)/builder.mk
+include $(CPP_PROJECT_BUILDER_CORE)/builder.mk

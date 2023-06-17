@@ -23,25 +23,12 @@
 #
 # For more information, please refer to <http://unlicense.org/>
 
-ifndef CPP_PROJECT_BUILDER
-    $(error [CPP_PROJECT_BUILDER] Missing definition)
-endif
-
 PROJ_NAME := hello
 PROJ_TYPE := app
 
 O ?= output
 
-INCLUDE_DIRS += $(O)/libs/dist/include
-LDFLAGS      += -L$(O)/libs/dist/lib
+LIBS += mylib0:../lib
 
-MYLIB_SRC_DIR  := ../lib
-PRE_BUILD_DEPS += $(O)/libs/mylib.marker
-LDFLAGS        += -lmylib0
-
---mylib:
-	$(O_VERBOSE)$(MAKE) -C $(MYLIB_SRC_DIR) O=$(call FN_REL_DIR,$(MYLIB_SRC_DIR),$(O)/libs) BUILD_SUBDIR=mylib DIST_MARKER=mylib.marker
-
-$(O)/libs/mylib.marker: --mylib ;
-
-include $(CPP_PROJECT_BUILDER)/builder.mk
+CPP_PROJECT_BUILDER_CORE ?= ../../core
+include $(CPP_PROJECT_BUILDER_CORE)/builder.mk
