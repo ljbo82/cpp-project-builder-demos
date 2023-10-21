@@ -29,16 +29,7 @@ PROJ_TYPE := lib
 CPP_PROJECT_BUILDER_CORE ?= ../../core
 
 # Since LIB_TYPE will be defined after platform layers are processed,
-# includes project.mk instead of builder.mk in order to fully parse project
-# data prior to compiler management.
+# includes lib.mk after layers were processed.
+MAKE_INCLUDES += lib.mk
+
 include $(CPP_PROJECT_BUILDER_CORE)/project.mk
-
-# At this point, LIB_TYPE is defined, but compiler management did not took
-# place yet.
-
-# Source code use special decorators when building a shared library
-ifeq ($(LIB_TYPE),shared)
-    CFLAGS += -DLIB_BUILD_SHARED_LIB -fvisibility=hidden
-endif
-
-include $(CPP_PROJECT_BUILDER_CORE)/builder.mk

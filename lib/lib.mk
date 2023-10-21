@@ -23,8 +23,10 @@
 #
 # For more information, please refer to <http://unlicense.org/>
 
-PROJ_NAME := hello
-PROJ_TYPE := app
+# At this point, LIB_TYPE is defined, but compiler management did not took
+# place yet.
 
-CPP_PROJECT_BUILDER_CORE ?= ../../core
-include $(CPP_PROJECT_BUILDER_CORE)/project.mk
+# Source code use special decorators when building a shared library
+ifeq ($(LIB_TYPE),shared)
+    CFLAGS += -DLIB_BUILD_SHARED_LIB -fvisibility=hidden
+endif

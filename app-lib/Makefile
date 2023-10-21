@@ -23,12 +23,12 @@
 #
 # For more information, please refer to <http://unlicense.org/>
 
-PROJ_NAME := hello
-PROJ_TYPE := app
+PROJ_NAME = hello
+PROJ_TYPE = app
 
 O ?= output
 
 LIBS += mylib0:../lib
 
 CPP_PROJECT_BUILDER_CORE ?= ../../core
-include $(CPP_PROJECT_BUILDER_CORE)/builder.mk
+include $(CPP_PROJECT_BUILDER_CORE)/project.mk
