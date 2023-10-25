@@ -24,14 +24,12 @@ OTHER DEALINGS IN THE SOFTWARE.
 
 For more information, please refer to <http://unlicense.org/>
 */
-#include "mylib_private.h"
-
 #include <stdio.h>
 
-void _lib_println(const char* str) {
+static void __lib_println(const char* str) {
 	printf("%s\n", str);
 }
 
-LIB_PUBLIC void LIB_CALL lib_println(const char* str) {
-	_lib_println(str);
+void lib_println(const char* str) {
+	__lib_println(str);
 }

@@ -26,5 +26,5 @@
 PROJ_NAME := hello
 PROJ_TYPE := app
 
-CPP_PROJECT_BUILDER_CORE ?= ../../core
+include ../demos.mk
 include $(CPP_PROJECT_BUILDER_CORE)/project.mk

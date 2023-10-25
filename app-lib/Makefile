@@ -26,9 +26,8 @@
 PROJ_NAME = hello
 PROJ_TYPE = app
 
-O ?= output
+# NOTE: libX depends on libY, which in turn depends on libZ
+LIBS += x:libs/libX
 
-LIBS += mylib0:../lib
-
-CPP_PROJECT_BUILDER_CORE ?= ../../core
+include ../demos.mk
 include $(CPP_PROJECT_BUILDER_CORE)/project.mk

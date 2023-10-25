@@ -26,10 +26,5 @@
 PROJ_NAME := mylib
 PROJ_TYPE := lib
 
-CPP_PROJECT_BUILDER_CORE ?= ../../core
-
-# Since LIB_TYPE will be defined after platform layers are processed,
-# includes lib.mk after layers were processed.
-MAKE_INCLUDES += lib.mk
-
+include ../demos.mk
 include $(CPP_PROJECT_BUILDER_CORE)/project.mk

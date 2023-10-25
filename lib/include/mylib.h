@@ -32,34 +32,11 @@ For more information, please refer to <http://unlicense.org/>
 #include <inttypes.h>
 #include <stdlib.h>
 
-#if defined _WIN32 || defined __CYGWIN__
-	#ifdef LIB_BUILD_SHARED_LIB
-		/** @internal */
-		#define LIB_PUBLIC __declspec(dllexport)
-	#else
-		#define LIB_PUBLIC
-	#endif
-
-	/** @internal */
-	#define LIB_CALL __cdecl
-#else
-	#if defined(LIB_BUILD_SHARED_LIB) && __GNUC__ >= 4
-		/** @internal */
-		#define LIB_PUBLIC __attribute__ ((visibility ("default")))
-	#else
-		/** @internal */
-		#define LIB_PUBLIC
-	#endif
-
-	/** @internal */
-	#define LIB_CALL
-#endif
-
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-LIB_PUBLIC void LIB_CALL lib_println(const char* str);
+void lib_println(const char* str);
 
 #ifdef __cplusplus
 } // extern "C"

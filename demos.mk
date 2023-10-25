@@ -23,10 +23,7 @@
 #
 # For more information, please refer to <http://unlicense.org/>
 
-# At this point, LIB_TYPE is defined, but compiler management did not took
-# place yet.
-
-# Source code use special decorators when building a shared library
-ifeq ($(LIB_TYPE),shared)
-    CFLAGS += -DLIB_BUILD_SHARED_LIB -fvisibility=hidden
+CPP_PROJECT_BUILDER_CORE ?= ../../core
+ifeq ($(wildcard $(CPP_PROJECT_BUILDER_CORE)/project.mk),)
+    $(error cpp-project-builder not found in $(CPP_PROJECT_BUILDER_CORE))
 endif
