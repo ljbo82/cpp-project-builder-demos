@@ -18,7 +18,7 @@ This directory contains example projects using cpp-project-builder:
 
    Contains an example of a library project.
 
-* **`cpp-app/`**
+* **`mixed-app/`**
 
    Contains an example of an application executable containing both C and C++ source files.
 
