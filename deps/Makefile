@@ -26,8 +26,12 @@
 PROJ_NAME = hello
 PROJ_TYPE = app
 
+LIBS_DIR = libs
+export LIB_Y_DIR = $(LIBS_DIR)/libY
+export LIB_Z_DIR = $(LIBS_DIR)/libZ
+
 # NOTE: libX depends on libY, which in turn depends on libZ
-LIBS += x:libs/libX
+LIBS += X:$(LIBS_DIR)/libX
 
 include ../demos.mk
 include $(CPP_PROJECT_BUILDER_CORE)/project.mk

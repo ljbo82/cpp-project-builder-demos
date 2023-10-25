@@ -24,13 +24,11 @@ OTHER DEALINGS IN THE SOFTWARE.
 
 For more information, please refer to <http://unlicense.org/>
 */
+#include <y.h>
+#include <z.h>
 #include <stdio.h>
-#include <mylib.h>
 
-static void __lib_println(const char* str) {
-	printf("%s\n", str);
-}
-
-void lib_println(const char* str) {
-	__lib_println(str);
+void y_fn() {
+	printf("y_fn\n");
+	z_fn();
 }

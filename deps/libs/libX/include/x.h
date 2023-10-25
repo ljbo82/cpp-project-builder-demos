@@ -24,13 +24,14 @@ OTHER DEALINGS IN THE SOFTWARE.
 
 For more information, please refer to <http://unlicense.org/>
 */
-#include <stdio.h>
-#include <mylib.h>
+#pragma once
 
-static void __lib_println(const char* str) {
-	printf("%s\n", str);
-}
+#ifdef __cplusplus
+extern "C" {
+#endif
 
-void lib_println(const char* str) {
-	__lib_println(str);
-}
+void x_fn();
+
+#ifdef __cplusplus
+} // extern "C"
+#endif

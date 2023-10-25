@@ -23,13 +23,16 @@
 #
 # For more information, please refer to <http://unlicense.org/>
 
-demos_mk_self_dir := $(dir $(lastword $(MAKEFILE_LIST)))
+PROJ_NAME = X
+PROJ_TYPE = lib
+LIB_NAME ?= X
 
-CPP_PROJECT_BUILDER_CORE ?= $(demos_mk_self_dir)../core
-
-ifeq ($(wildcard $(CPP_PROJECT_BUILDER_CORE)/project.mk),)
-    $(error cpp-project-builder not found in $(CPP_PROJECT_BUILDER_CORE))
+ifndef LIB_Y_DIR
+    $(error [LIB_Y_DIR] missing definition)
 endif
 
-CPP_PROJECT_BUILDER_CORE := $(CPP_PROJECT_BUILDER_CORE)
-undefine demos_mk_self_dir
+# NOTE: libY depends on libZ
+LIBS += Y:$(LIB_Y_DIR)
+
+include ../../../demos.mk
+include $(CPP_PROJECT_BUILDER_CORE)/project.mk

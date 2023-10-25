@@ -2,10 +2,6 @@
 
 This directory contains example projects using cpp-project-builder:
 
-* **`app-lib/`**
-
-   Contains an example of an applications which uses (and builds) a dependency.
-
 * **`c-app/`**
 
    Contains an example of a pure-C application executable project.
@@ -13,6 +9,10 @@ This directory contains example projects using cpp-project-builder:
 * **`cpp-app/`**
 
    Contains an example of a C++ application executable project.
+
+* **`deps/`**
+
+   Contains an example of an applications which uses (and builds) a dependency (and respective transient dependencies).
 
 * **`lib/`**
 
