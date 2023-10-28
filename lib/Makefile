@@ -25,6 +25,7 @@
 
 PROJ_NAME := mylib
 PROJ_TYPE := lib
+LIB_NAME ?= $(PROJ_NAME)
 
 include ../demos.mk
 include $(CPP_PROJECT_BUILDER_CORE)/project.mk
