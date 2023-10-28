@@ -23,13 +23,9 @@
 #
 # For more information, please refer to <http://unlicense.org/>
 
-PROJ_NAME = hello
-PROJ_TYPE = app
+PROJ_NAME = A
+PROJ_TYPE = lib
+LIB_NAME ?= A
 
-export LIBS_DIR = $(abspath libs)
-
-# NOTE: libX depends on libY, which in turn depends on libZ
-LIBS += X:$(LIBS_DIR)/libX
-
-include ../demos.mk
+include ../../../demos.mk
 include $(CPP_PROJECT_BUILDER_CORE)/project.mk

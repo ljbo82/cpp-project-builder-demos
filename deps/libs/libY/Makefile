@@ -27,11 +27,11 @@ PROJ_NAME = Y
 PROJ_TYPE = lib
 LIB_NAME ?= Y
 
-ifndef LIB_Z_DIR
-    $(error [LIB_Z_DIR] missing definition)
+ifndef LIBS_DIR
+    $(error [LIBS_DIR] missing definition)
 endif
 
-LIBS += Z:$(LIB_Z_DIR)
+LIBS += Z:$(LIBS_DIR)/libZ
 
 include ../../../demos.mk
 include $(CPP_PROJECT_BUILDER_CORE)/project.mk

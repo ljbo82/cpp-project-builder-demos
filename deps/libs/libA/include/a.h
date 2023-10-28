@@ -24,11 +24,14 @@ OTHER DEALINGS IN THE SOFTWARE.
 
 For more information, please refer to <http://unlicense.org/>
 */
-#include <y.h>
-#include <z.h>
-#include <stdio.h>
+#pragma once
 
-void y_fn() {
-	z_fn();
-	printf("y_fn\n");
-}
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+void a_fn();
+
+#ifdef __cplusplus
+} // extern "C"
+#endif

@@ -26,9 +26,11 @@ For more information, please refer to <http://unlicense.org/>
 */
 #include <x.h>
 #include <y.h>
+#include <a.h>
 #include <stdio.h>
 
 void x_fn() {
-	printf("x_fn\n");
+	a_fn();
 	y_fn();
+	printf("x_fn\n");
 }

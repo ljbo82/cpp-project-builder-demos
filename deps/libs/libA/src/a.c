@@ -24,11 +24,9 @@ OTHER DEALINGS IN THE SOFTWARE.
 
 For more information, please refer to <http://unlicense.org/>
 */
-#include <y.h>
-#include <z.h>
+#include <a.h>
 #include <stdio.h>
 
-void y_fn() {
-	z_fn();
-	printf("y_fn\n");
+void a_fn() {
+	printf("a_fn\n");
 }
