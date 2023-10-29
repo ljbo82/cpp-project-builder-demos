@@ -25,9 +25,11 @@
 
 PROJ_NAME = A
 PROJ_TYPE = lib
-LIB_NAME ?= A
-
+LIB_NAME = A
 LIBS += m
+SKIP_DEFAULT_SRC_DIR = 1
+SRC_DIRS += .
+DIST_FILES += a.h:include/a.h
 
 include ../../../demos.mk
 include $(CPP_PROJECT_BUILDER_CORE)/project.mk
