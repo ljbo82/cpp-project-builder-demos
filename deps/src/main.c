@@ -24,9 +24,11 @@ OTHER DEALINGS IN THE SOFTWARE.
 
 For more information, please refer to <http://unlicense.org/>
 */
-#include <mylib.h>
+#include <x.h>
+#include <stdio.h>
 
 int main(int argc, char** argv) {
-    lib_println("hello world!");
+	x_fn();
+    printf("hello world!\n");
     return 0;
 }

@@ -29,8 +29,8 @@ PROJ_TYPE = app
 export LIBS_DIR = $(abspath libs)
 
 # NOTE: libX depends on:
-#     libA (which in turns depend on standard math lib)
-#     libY (which in turn depends on libZ)
+#    libA (which in turns depend on standard math lib)
+#    libY (which in turn depends on libZ)
 LIBS += X:$(LIBS_DIR)/libX
 
 include ../demos.mk
