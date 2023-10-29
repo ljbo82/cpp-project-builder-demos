@@ -24,15 +24,14 @@ OTHER DEALINGS IN THE SOFTWARE.
 
 For more information, please refer to <http://unlicense.org/>
 */
-#include <x.h>
-#include <y.h>
-#include <a.h>
-#include <b.h>
-#include <stdio.h>
+#pragma once
 
-void x_fn() {
-	a_fn();
-	b_fn();
-	y_fn();
-	printf("x_fn\n");
-}
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+void b_fn();
+
+#ifdef __cplusplus
+} // extern "C"
+#endif

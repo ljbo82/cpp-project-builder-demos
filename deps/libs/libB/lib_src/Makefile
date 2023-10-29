@@ -23,19 +23,15 @@
 #
 # For more information, please refer to <http://unlicense.org/>
 
-PROJ_NAME = X
+PROJ_NAME = B
 PROJ_TYPE = lib
-LIB_NAME ?= X
+LIB_NAME  = B
+LIBS     += m
 
-ifndef LIBS_DIR
-    $(error [LIBS_DIR] missing definition)
-endif
+override O        := output
+override LIB_TYPE := static
 
-LIBS += A:$(LIBS_DIR)/libA
-LIBS += B:$(LIBS_DIR)/libB
+DIST_FILES += src/b.h:include/b.h
 
-# NOTE: libY depends on libZ
-LIBS += Y:$(LIBS_DIR)/libY
-
-include ../../../demos.mk
+include ../../../../demos.mk
 include $(CPP_PROJECT_BUILDER_CORE)/project.mk

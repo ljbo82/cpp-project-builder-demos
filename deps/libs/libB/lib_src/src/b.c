@@ -24,15 +24,10 @@ OTHER DEALINGS IN THE SOFTWARE.
 
 For more information, please refer to <http://unlicense.org/>
 */
-#include <x.h>
-#include <y.h>
-#include <a.h>
 #include <b.h>
 #include <stdio.h>
+#include <math.h>
 
-void x_fn() {
-	a_fn();
-	b_fn();
-	y_fn();
-	printf("x_fn\n");
+void b_fn() {
+	printf("b_fn: cos of PI is %.4f\n", cos(M_PI));
 }
