@@ -29,5 +29,5 @@ For more information, please refer to <http://unlicense.org/>
 #include <math.h>
 
 void a_fn() {
-	printf("a_fn: sin of PI is %.4f\n", sin(M_PI));
+	printf("a_fn: sin of PI/2 is %.4f\n", sin(M_PI / 2));
 }
