@@ -33,9 +33,13 @@ export LIBS_DIR = $(abspath libs)
 #    libY (which in turn depends on libZ)
 LIBS += X:$(LIBS_DIR)/libX
 
+# ==============================================================================
+POST_CLEAN_DEPS += --clean-libs
+
 .PHONY: --clean-libs
 --clean-libs:
 	$(VERBOSE) find $(LIBS_DIR) -type d -name $(O) | xargs -I{} rm -rf {}
+# ==============================================================================
 
 include ../demos.mk
 include $(CPP_PROJECT_BUILDER_CORE)/project.mk
