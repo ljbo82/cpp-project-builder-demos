@@ -32,14 +32,14 @@ LIB_SRC := lib_src
 DIST_FILES      += $(LIB_SRC)/src/b.h:include/b.h
 DIST_FILES      += $(LIB_SRC)/output/dist/lib/libB.a:lib/libB.a
 POST_CLEAN_DEPS += --post-clean
-PRE_BUILD_DEPS  += $(LIB_SRC)/output/dist/lib/libB.a
+PRE_BUILD_DEPS  += $(LIB_SRC)/output/dist/marker
 
 .PHONY: --post-clean
 --post-clean:
 	@$(MAKE) --no-print-directory -C $(LIB_SRC) clean
 
-$(LIB_SRC)/output/dist/lib/libB.a:
-	@$(MAKE) -C $(LIB_SRC)
+$(LIB_SRC)/output/dist/marker:
+	@$(MAKE) -C $(LIB_SRC) DIST_MARKER=marker
 
 include ../../../demos.mk
 include $(CPP_PROJECT_BUILDER_CORE)/project.mk

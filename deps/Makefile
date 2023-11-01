@@ -34,10 +34,10 @@ export LIBS_DIR = $(abspath libs)
 LIBS += X:$(LIBS_DIR)/libX
 
 # ==============================================================================
-POST_CLEAN_DEPS += --clean-libs
+POST_CLEAN_DEPS += --post-clean
 
-.PHONY: --clean-libs
---clean-libs:
+.PHONY: --post-clean
+--post-clean:
 	$(VERBOSE) find $(LIBS_DIR) -type d -name $(O) | xargs -I{} rm -rf {}
 # ==============================================================================
 

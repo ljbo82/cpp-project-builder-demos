@@ -31,7 +31,5 @@ LIBS     += m
 override O        := output
 override LIB_TYPE := static
 
-DIST_FILES += src/b.h:include/b.h
-
 include ../../../../demos.mk
 include $(CPP_PROJECT_BUILDER_CORE)/project.mk
