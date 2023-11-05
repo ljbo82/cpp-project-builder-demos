@@ -25,6 +25,9 @@
 
 PROJ_NAME := mylib
 PROJ_TYPE := lib
+
+# Without this definition library name would be mylib0 (0 comes from default
+# project's major version).
 LIB_NAME ?= $(PROJ_NAME)
 
 include ../demos.mk

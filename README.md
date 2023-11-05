@@ -12,7 +12,11 @@ This directory contains example projects using cpp-project-builder:
 
 * **`deps/`**
 
-   Contains an example of an applications which uses (and builds) a dependency (and respective transient dependencies).
+   Contains an example of an application which uses (and builds) a dependency (and respective transient dependencies).
+
+* **`hosts/`**
+
+   Contains an example of an applications which contains customizations according to target HOST.
 
 * **`lib/`**
 

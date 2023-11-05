@@ -23,24 +23,11 @@
 #
 # For more information, please refer to <http://unlicense.org/>
 
-PROJ_NAME = hello
-PROJ_TYPE = app
 
-export LIBS_DIR = $(abspath libs)
+# Build customizations for windows hosts
+#
+# NOTE: This makefile is required only to define WINDOWS_EXTRA. If there
+#       would be no need for this define, this makefile would not be
+#       needed at all.
 
-# NOTE: libX depends on:
-#    libA (which in turns depend on standard math lib)
-#    libY (which in turn depends on libZ)
-LIBS += X:$(LIBS_DIR)/libX
-
-# ==============================================================================
-# Ensures that all library source directories are cleared
-POST_CLEAN_DEPS += --post-clean
-
-.PHONY: --post-clean
---post-clean:
-	$(VERBOSE) find $(LIBS_DIR) -type d -name $(O) | xargs -I{} rm -rf {}
-# ==============================================================================
-
-include ../demos.mk
-include $(CPP_PROJECT_BUILDER_CORE)/project.mk
+CFLAGS += -DWINDOWS_EXTRA=\"WINDOWS-EXTRA\"
