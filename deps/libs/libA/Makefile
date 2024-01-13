@@ -25,6 +25,8 @@
 
 PROJ_NAME = A
 PROJ_TYPE = lib
+
+# Without setting LIB_NAME, library name would be A0
 LIB_NAME = A
 
 LIBS += m

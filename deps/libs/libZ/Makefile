@@ -25,6 +25,8 @@
 
 PROJ_NAME = Z
 PROJ_TYPE = lib
+
+# Without setting LIB_NAME, library name would be Z0
 LIB_NAME ?= Z
 
 include ../../../demos.mk

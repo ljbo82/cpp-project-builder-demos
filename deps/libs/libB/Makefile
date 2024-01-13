@@ -25,9 +25,11 @@
 
 PROJ_NAME = B
 PROJ_TYPE = lib
-LIB_NAME  = B
 
-LIB_SRC := lib_src
+# Without setting LIB_NAME, library name would be B0
+LIB_NAME = B
+
+LIB_SRC = lib_src
 
 DIST_FILES      += $(LIB_SRC)/src/b.h:include/b.h
 DIST_FILES      += $(LIB_SRC)/output/dist/lib/libB.a:lib/libB.a

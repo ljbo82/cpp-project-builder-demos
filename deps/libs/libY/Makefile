@@ -25,6 +25,8 @@
 
 PROJ_NAME = Y
 PROJ_TYPE = lib
+
+# Without setting LIB_NAME, library name would be Y0
 LIB_NAME ?= Y
 
 ifndef LIBS_DIR

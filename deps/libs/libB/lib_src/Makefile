@@ -25,8 +25,11 @@
 
 PROJ_NAME = B
 PROJ_TYPE = lib
-LIB_NAME  = B
-LIBS     += m
+
+# Without setting LIB_NAME, library name would be B0
+LIB_NAME = B
+
+LIBS += m
 
 override O        := output
 override LIB_TYPE := static
