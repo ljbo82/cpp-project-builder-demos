@@ -23,8 +23,4 @@
 #
 # For more information, please refer to <http://unlicense.org/>
 
-PROJ_NAME := hosts-demo
-PROJ_TYPE := app
-
-include ../demos.mk
-include $(CPP_PROJECT_BUILDER_CORE)/project.mk
+CFLAGS += -DHOST=\"$(HOST)\"

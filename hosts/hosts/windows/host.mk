@@ -22,12 +22,9 @@
 # OTHER DEALINGS IN THE SOFTWARE.
 #
 # For more information, please refer to <http://unlicense.org/>
-
-
-# Build customizations for windows hosts
 #
-# NOTE: This makefile is required only to define WINDOWS_EXTRA. If there
-#       would be no need for this define, this makefile would not be
-#       needed at all.
+# Build customizations for windows hosts
+
+include $(dir $(lastword $(MAKEFILE_LIST)))../shared.mk
 
 CFLAGS += -DWINDOWS_EXTRA=\"WINDOWS-EXTRA\"
