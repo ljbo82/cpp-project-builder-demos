@@ -30,7 +30,6 @@ PROJ_TYPE = lib
 LIB_NAME = A
 
 LIBS += m
-SKIP_DEFAULT_SRC_DIR = 1
 SRC_DIRS += .
 DIST_FILES += a.h:include/a.h
 
