@@ -42,5 +42,4 @@ POST_CLEAN_DEPS += --post-clean
 	$(VERBOSE) find $(LIBS_DIR) -type d -name $(O) | xargs -I{} rm -rf {}
 # ==============================================================================
 
-include ../demos.mk
-include $(CPP_PROJECT_BUILDER_CORE)/project.mk
+include ../builder.mk

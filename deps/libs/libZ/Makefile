@@ -29,5 +29,4 @@ PROJ_TYPE = lib
 # Without setting LIB_NAME, library name would be Z0
 LIB_NAME ?= Z
 
-include ../../../demos.mk
-include $(CPP_PROJECT_BUILDER_CORE)/project.mk
+include ../../../builder.mk

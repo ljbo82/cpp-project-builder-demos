@@ -35,5 +35,4 @@ endif
 
 LIBS += Z:$(LIBS_DIR)/libZ
 
-include ../../../demos.mk
-include $(CPP_PROJECT_BUILDER_CORE)/project.mk
+include ../../../builder.mk

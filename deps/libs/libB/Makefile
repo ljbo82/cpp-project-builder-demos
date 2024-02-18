@@ -43,5 +43,4 @@ PRE_BUILD_DEPS  += $(LIB_SRC)/output/dist/marker
 $(LIB_SRC)/output/dist/marker:
 	@$(MAKE) -C $(LIB_SRC) DIST_MARKER=marker
 
-include ../../../demos.mk
-include $(CPP_PROJECT_BUILDER_CORE)/project.mk
+include ../../../builder.mk

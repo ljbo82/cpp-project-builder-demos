@@ -27,9 +27,9 @@ demos_mk_self_dir := $(dir $(lastword $(MAKEFILE_LIST)))
 
 CPP_PROJECT_BUILDER_CORE ?= $(demos_mk_self_dir)../core
 
-ifeq ($(wildcard $(CPP_PROJECT_BUILDER_CORE)/project.mk),)
+ifeq ($(wildcard $(CPP_PROJECT_BUILDER_CORE)/builder.mk),)
     $(error cpp-project-builder not found in $(CPP_PROJECT_BUILDER_CORE))
 endif
 
-CPP_PROJECT_BUILDER_CORE := $(CPP_PROJECT_BUILDER_CORE)
+include $(CPP_PROJECT_BUILDER_CORE)/builder.mk
 undefine demos_mk_self_dir

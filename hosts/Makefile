@@ -26,5 +26,4 @@
 PROJ_NAME := hosts-demo
 PROJ_TYPE := app
 
-include ../demos.mk
-include $(CPP_PROJECT_BUILDER_CORE)/project.mk
+include ../builder.mk

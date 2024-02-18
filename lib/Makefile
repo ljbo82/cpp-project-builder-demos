@@ -30,5 +30,4 @@ PROJ_TYPE := lib
 # project's major version).
 LIB_NAME ?= $(PROJ_NAME)
 
-include ../demos.mk
-include $(CPP_PROJECT_BUILDER_CORE)/project.mk
+include ../builder.mk

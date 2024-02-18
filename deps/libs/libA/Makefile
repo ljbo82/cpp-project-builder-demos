@@ -33,5 +33,4 @@ LIBS += m
 SRC_DIRS += .
 DIST_FILES += a.h:include/a.h
 
-include ../../../demos.mk
-include $(CPP_PROJECT_BUILDER_CORE)/project.mk
+include ../../../builder.mk
