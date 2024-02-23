@@ -23,24 +23,20 @@
 #
 # For more information, please refer to <http://unlicense.org/>
 
-PROJ_NAME = B
-PROJ_TYPE = lib
+BUILD_DIR ?= build
+CC ?= gcc
+AR ?= ar
 
-# Without setting LIB_NAME, library name would be B0
-LIB_NAME = B
+.PHONY: all
+all: $(BUILD_DIR)/libB.a ;
 
-LIB_SRC = lib_src
+.PHONY: clean
+clean:
+	@rm -rf $(BUILD_DIR)
 
-DIST_FILES      += $(LIB_SRC)/src/b.h:include/b.h
-DIST_FILES      += $(LIB_SRC)/output/dist/lib/libB.a:lib/libB.a
-POST_CLEAN_DEPS += --post-clean
-PRE_BUILD_DEPS  += $(LIB_SRC)/output/dist/marker
+$(BUILD_DIR)/b.c.o: b.c b.h
+	@mkdir -p $(dir $@)
+	$(CC) -c $< -o $@
 
-.PHONY: --post-clean
---post-clean:
-	@$(MAKE) --no-print-directory -C $(LIB_SRC) clean
-
-$(LIB_SRC)/output/dist/marker:
-	@$(MAKE) -C $(LIB_SRC) DIST_MARKER=marker
-
-include ../../../builder.mk
+$(BUILD_DIR)/libB.a: $(BUILD_DIR)/b.c.o
+	$(AR) rcs $@ $<

@@ -23,15 +23,23 @@
 #
 # For more information, please refer to <http://unlicense.org/>
 
-PROJ_NAME = B
-PROJ_TYPE = lib
+PROJ_NAME := B
+PROJ_TYPE := lib
+LIB_TYPE  := static
 
-# Without setting LIB_NAME, library name would be B0
-LIB_NAME = B
+ifndef LIBS_DIR
+    $(error [LIBS_DIR] missing definition)
+endif
 
 LIBS += m
+LIB_NAME := B
 
-override O        := output
-override LIB_TYPE := static
+O ?= output
+BUILD_DEPS := $(O)/build/libB.a
+DIST_FILES += $(O)/build/libB.a:lib/libB.a
+DIST_FILES += $(LIBS_DIR)/libB/b.h:include/b.h
+
+$(O)/build/libB.a: $(LIBS_DIR)/libB/b.c $(LIBS_DIR)/libB/b.h
+	$(VERBOSE)$(MAKE) -C $(LIBS_DIR)/libB BUILD_DIR=$(abspath $(O)/build) CC=$(CROSS_COMPILE)$(CC) AR=$(CROSS_COMPILE)$(AR)
 
 include ../../../../builder.mk

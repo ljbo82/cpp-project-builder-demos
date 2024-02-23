@@ -34,7 +34,9 @@ ifndef LIBS_DIR
 endif
 
 LIBS += A:$(LIBS_DIR)/libA
-LIBS += B:$(LIBS_DIR)/libB
+
+# NOTE: LibB builds in non-standard way
+LIBS += B:libs:libB.mk
 
 # NOTE: libY depends on libZ
 LIBS += Y:$(LIBS_DIR)/libY
