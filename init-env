@@ -1,0 +1,10 @@
+#!/bin/sh
+
+if [ -z "$CPP_PROJECT_BUILDER" ]; then
+	if [ -f "../core/builder.mk" ]; then
+		export CPP_PROJECT_BUILDER=$(dirname $(realpath "../core/builder.mk"))
+	else
+		echo "Could not detect CPP_PROJECT_BUILDER"
+		exit 1
+	fi
+fi

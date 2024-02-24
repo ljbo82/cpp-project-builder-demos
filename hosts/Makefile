@@ -23,7 +23,13 @@
 #
 # For more information, please refer to <http://unlicense.org/>
 
+ifndef CPP_PROJECT_BUILDER
+    $(error [CPP_PROJECT_BUILDER] Missing value)
+endif
+
+CPB_MIN_VERSION := 1.0.0
+
 PROJ_NAME := hosts-demo
 PROJ_TYPE := app
 
-include ../builder.mk
+include $(CPP_PROJECT_BUILDER)/builder.mk

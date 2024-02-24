@@ -23,15 +23,21 @@
 #
 # For more information, please refer to <http://unlicense.org/>
 
+ifndef CPP_PROJECT_BUILDER
+    $(error [CPP_PROJECT_BUILDER] Missing value)
+endif
+
+CPB_MIN_VERSION := 1.0.0
+
+ifndef LIBS_DIR
+    $(error [LIBS_DIR] missing definition)
+endif
+
 PROJ_NAME = X
 PROJ_TYPE = lib
 
 # Without setting LIB_NAME, library name would be X0
 LIB_NAME ?= X
-
-ifndef LIBS_DIR
-    $(error [LIBS_DIR] missing definition)
-endif
 
 LIBS += A:$(LIBS_DIR)/libA
 
@@ -41,4 +47,4 @@ LIBS += B:libs:libB.mk
 # NOTE: libY depends on libZ
 LIBS += Y:$(LIBS_DIR)/libY
 
-include ../../../builder.mk
+include $(CPP_PROJECT_BUILDER)/builder.mk

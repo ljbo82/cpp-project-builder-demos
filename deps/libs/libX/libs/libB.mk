@@ -23,13 +23,19 @@
 #
 # For more information, please refer to <http://unlicense.org/>
 
-PROJ_NAME := B
-PROJ_TYPE := lib
-LIB_TYPE  := static
+ifndef CPP_PROJECT_BUILDER
+    $(error [CPP_PROJECT_BUILDER] Missing value)
+endif
+
+CPB_MIN_VERSION := 1.0.0
 
 ifndef LIBS_DIR
     $(error [LIBS_DIR] missing definition)
 endif
+
+PROJ_NAME := B
+PROJ_TYPE := lib
+LIB_TYPE  := static
 
 LIBS += m
 LIB_NAME := B
@@ -42,4 +48,4 @@ DIST_FILES += $(LIBS_DIR)/libB/b.h:include/b.h
 $(O)/build/libB.a: $(LIBS_DIR)/libB/b.c $(LIBS_DIR)/libB/b.h
 	$(VERBOSE)$(MAKE) -C $(LIBS_DIR)/libB BUILD_DIR=$(abspath $(O)/build) CC=$(CROSS_COMPILE)$(CC) AR=$(CROSS_COMPILE)$(AR)
 
-include ../../../../builder.mk
+include $(CPP_PROJECT_BUILDER)/builder.mk

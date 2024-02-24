@@ -23,6 +23,12 @@
 #
 # For more information, please refer to <http://unlicense.org/>
 
+ifndef CPP_PROJECT_BUILDER
+    $(error [CPP_PROJECT_BUILDER] Missing value)
+endif
+
+CPB_MIN_VERSION := 1.0.0
+
 PROJ_NAME := mylib
 PROJ_TYPE := lib
 
@@ -30,4 +36,4 @@ PROJ_TYPE := lib
 # project's major version).
 LIB_NAME ?= $(PROJ_NAME)
 
-include ../builder.mk
+include $(CPP_PROJECT_BUILDER)/builder.mk
