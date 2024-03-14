@@ -23,8 +23,8 @@
 #
 # For more information, please refer to <http://unlicense.org/>
 
-ifndef CPP_PROJECT_BUILDER
-    $(error [CPP_PROJECT_BUILDER] Missing value)
+ifndef CPB_DIR
+    $(error [CPB_DIR] Missing value)
 endif
 
 CPB_MIN_VERSION := 1.0.0
@@ -49,4 +49,4 @@ POST_CLEAN_DEPS += --post-clean
 	$(VERBOSE) find $(LIBS_DIR) -type d -name $(O) | xargs -I{} rm -rf {}
 # ==============================================================================
 
-include $(CPP_PROJECT_BUILDER)/builder.mk
+include $(CPB_DIR)/builder.mk

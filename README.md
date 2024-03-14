@@ -1,6 +1,6 @@
-# cpp-project-builder demos
+# cpp-project-builder-demos
 
-This directory contains example projects using cpp-project-builder:
+ [This repository](https://github.com/ljbo82/cpp-project-builder-demos) contains example projects using [cpp-project-builder](tbd) build system:
 
 * **`c-app/`**
 
@@ -8,15 +8,11 @@ This directory contains example projects using cpp-project-builder:
 
 * **`cpp-app/`**
 
-   Contains an example of a C++ application executable project.
+   Contains an example of a pure C++ application executable project.
 
 * **`deps/`**
 
-   Contains an example of an application which uses (and builds) a dependency (and respective transient dependencies).
-
-* **`hosts/`**
-
-   Contains an example of an applications which contains customizations according to target HOST.
+   Contains an example of an application project which uses (and builds) dependencies (and their respective transient dependencies).
 
 * **`lib/`**
 
@@ -24,16 +20,28 @@ This directory contains example projects using cpp-project-builder:
 
 * **`mixed-app/`**
 
-   Contains an example of an application executable containing both C and C++ source files.
+   Contains an example of an application project containing both C and C++ source files.
 
-## Compiling
+* **`multiplatform/`**
 
-In order to build demos the environment variable `CPP_PROJECT_BUILDER` must be defined and must point to the directory of [cpp-project-builder-core](https://github.com/ljbo82/cpp-project-builder-core)
+   Contains an example of a multiplatorm project containing customizations according to target HOST.
+
+# Building the examples
+
+In order to build demos the environment variable `CPB_DIR` must be defined and must point to the directory containing the Build system.
+
+* If you cloned/copied the [whole build system project](https://github.com/ljbo82/cpp-project-builder) (containing documentation, demos, and the build system itself), the `CPB_DIR` environment variable must point to the its `core` subdirectory.
+
+* If you just cloned/copied only the [build system](https://github.com/ljbo82/cpp-project-builder-core), the `CPB_DIR` environment variable must point to the directory containing the copy / cloned repository.
+
+> **Convenience script**
+>
+> If you cloned/copied the whole build system project, source the script `init-env`. This script will export the variable `CPB_DIR` automatically for the current shell:
+>
+> ```bash
+> source init-env
+> ```
 
 # License
 
-This is free and unencumbered software released into the public domain.  Please see the [LICENSE](LICENSE) file for details on copying and distribution.
-
-# Contact
-
-For general information visit the main project site at https://github.com/ljbo82/cpp-project-builder-demos.
+All demos are free and unencumbered software released into the public domain. Please see the [LICENSE](LICENSE) file for details on copying and distribution.

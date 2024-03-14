@@ -23,8 +23,8 @@
 #
 # For more information, please refer to <http://unlicense.org/>
 
-ifndef CPP_PROJECT_BUILDER
-    $(error [CPP_PROJECT_BUILDER] Missing value)
+ifndef CPB_DIR
+    $(error [CPB_DIR] Missing value)
 endif
 
 CPB_MIN_VERSION := 1.0.0
@@ -39,4 +39,4 @@ LIBS += m
 SRC_DIRS += .
 DIST_FILES += a.h:include/a.h
 
-include $(CPP_PROJECT_BUILDER)/builder.mk
+include $(CPB_DIR)/builder.mk
